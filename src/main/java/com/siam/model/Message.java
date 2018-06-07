@@ -17,6 +17,7 @@ public class Message {
 	private String ipaddr;
 	private int success;
 	private String message;
+	private int rtt;
 	private Date date;
 	
 	public Integer getId() {
@@ -48,6 +49,12 @@ public class Message {
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public int getRtt() {
+		return rtt;
+	}
+	public void setRtt(int rtt) {
+		this.rtt = rtt;
 	}
 	public Date getDate() {
 		return date;

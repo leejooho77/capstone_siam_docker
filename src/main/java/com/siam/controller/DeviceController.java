@@ -3,6 +3,7 @@ package com.siam.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +24,13 @@ public class DeviceController {
 	@Autowired
 	MessageService messageService;
 	
+	@CrossOrigin
 	@RequestMapping(value="/device/{host}", method=RequestMethod.GET)
 	public @ResponseBody Device getDeviceByIp(@PathVariable("host") String host) {
 		return deviceServices.getDeviceByIp(host);
 	}
 	
+	@CrossOrigin
 	@GetMapping(path="/data")
 	public @ResponseBody ArrayList<Message> getDataFromPing() {
 		return messageService.results();
