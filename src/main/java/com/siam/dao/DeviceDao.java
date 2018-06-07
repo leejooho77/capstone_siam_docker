@@ -28,4 +28,8 @@ public class DeviceDao {
 	public Device getDeviceByMac(String macaddr) {
 		return jdbcTemplate.queryForObject(GET_DEVICE + WHERE_MAC + "\'" + macaddr + "\'", new BeanPropertyRowMapper<>(Device.class));
 	}
+	
+	public Iterable<Device> getAllDevices() {
+		return deviceRepository.findAll();
+	}
 }

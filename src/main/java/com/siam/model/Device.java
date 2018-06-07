@@ -14,6 +14,7 @@ public class Device {
 	private String macaddr;
 	private String ipaddr;
 	private String company;
+	private String type;
 	
 	public Integer getId() {
 		return id;
@@ -31,6 +32,10 @@ public class Device {
 		return macaddr;
 	}
 	
+	public String getType() {
+		return type;
+	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -45,5 +50,9 @@ public class Device {
 	
 	public void setMacaddr(String macaddr) {
 		this.macaddr = macaddr;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
 	}
 }

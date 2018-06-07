@@ -36,6 +36,15 @@ public class DeviceServices {
 		return deviceDao.getDeviceByIp(host);
 	}
 	
+	public ArrayList<Device> getAllDevices() {
+		ArrayList<Device> list = new ArrayList<>();
+		Iterator<Device> deviceIter = deviceDao.getAllDevices().iterator();
+		while(deviceIter.hasNext()) {
+			list.add(deviceIter.next());
+		}
+		return list;
+	}
+	
 //	public Message singleDevice(String host) {
 //		request = IcmpPingUtil.createIcmpPingRequest();
 //		request.setHost(host);

@@ -31,6 +31,12 @@ public class DeviceController {
 	}
 	
 	@CrossOrigin
+	@GetMapping(path="/device")
+	public @ResponseBody ArrayList<Device> getAllDevice() {
+		return deviceServices.getAllDevices();
+	}
+	
+	@CrossOrigin
 	@GetMapping(path="/data")
 	public @ResponseBody ArrayList<Message> getDataFromPing() {
 		return messageService.results();
