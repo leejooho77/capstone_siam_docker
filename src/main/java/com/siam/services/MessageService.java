@@ -26,7 +26,7 @@ public class MessageService {
 	
 	public ArrayList<Message> results() {
 		ArrayList<Message> list = new ArrayList<>();
-		Iterator<Message> messageIter = messageDao.getAllDevices().iterator();
+		Iterator<Message> messageIter = messageDao.getAllMessages().iterator();
 		while(messageIter.hasNext()) {
 			Message message = messageIter.next();
 			LOGGER.info(message.getMacAddr());
@@ -36,6 +36,10 @@ public class MessageService {
 			list.add(message);
 		}
 		return list;
+	}
+	
+	public Message getMessageById(int id) {
+		return messageDao.getMessageById(id);
 	}
 
 }

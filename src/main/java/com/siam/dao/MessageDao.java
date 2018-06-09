@@ -20,6 +20,7 @@ public class MessageDao {
 	private final String GET_MESSAGE = "SELECT * FROM message ";
 	private final String WHERE_MAC = "WHERE macaddr=";
 	private final String WHERE_IP = "WHERE ipaddr=";
+	private final String WHERE_ID = "WHERE id=";
 	private final String INSERT_DEVICE = "INSERT INTO message (macaddr, ipaddr, success, message, date) VALUES (?,?,?,?,?)";
 	private final String UPDATE_MESSAGE = "UPDATE message SET ipaddr=?, success=?, message=?, date=? ";
 	private final String DELETE_MESSAGE = "DELETE FROM messsage WHERE id=";
@@ -35,6 +36,10 @@ public class MessageDao {
 	
 	public Message getMessageByMac(String macaddr) {
 		return jdbcTemplate.queryForObject(GET_MESSAGE + WHERE_MAC + "\'" + macaddr + "\'", new BeanPropertyRowMapper<>(Message.class));
+	}
+	
+	public Message getMessageById(int id) {
+		return jdbcTemplate.queryForObject(GET_MESSAGE + WHERE_ID + "\'" + id + "\'", new BeanPropertyRowMapper<>(Message.class));
 	}
 	
 	public Integer countMessageByMac(String macaddr) {
@@ -59,7 +64,7 @@ public class MessageDao {
 		messageRepository.deleteAll();
 	}
 	
-	public Iterable<Message> getAllDevices() {
+	public Iterable<Message> getAllMessages() {
 		return messageRepository.findAll();
 	}
 	

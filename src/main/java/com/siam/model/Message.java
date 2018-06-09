@@ -19,6 +19,7 @@ public class Message {
 	private String message;
 	private int rtt;
 	private Date date;
+	private String path;
 	
 	public Integer getId() {
 		return id;
@@ -62,7 +63,10 @@ public class Message {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
-
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
 }
