@@ -103,7 +103,7 @@ public class DeviceController {
 		ArrayList<Message> list = messageService.results();
 		for(Message m: list) {
 			
-			File file = new File(System.getProperty("user.dir") + "/log" + m.getId() + ".txt");
+			File file = new File("/log" + m.getId() + ".txt");
 			System.out.println(file.getAbsolutePath());
 			BufferedWriter writer = new BufferedWriter(new FileWriter(file.getAbsolutePath(), true));
 	
