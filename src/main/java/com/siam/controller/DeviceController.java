@@ -61,9 +61,9 @@ public class DeviceController {
 	
 	@CrossOrigin
 	@RequestMapping(value="/history/{id}", method=RequestMethod.GET)
-	public @ResponseBody String getHistoryById(@PathVariable("id") int id) {
+	public @ResponseBody ArrayList<String> getHistoryById(@PathVariable("id") int id) {
 		Message message = messageService.getMessageById(id);
-		String history = "";
+		ArrayList<String> history = new ArrayList<>();
 		String line;
 		String fileName = message.getPath();
 		
@@ -75,7 +75,7 @@ public class DeviceController {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
-                history += line + "\n";
+                history.add(line);
             }   
 
             // Always close files.
@@ -111,7 +111,8 @@ public class DeviceController {
 			// rest
 			writer.append("MAC address: " + m.getMacAddr());
 			writer.append(" / IP address: " + m.getIpAddr());
-			writer.append(" / message: " + m.getMessage());
+			writer.append(" / Message: " + m.getMessage());
+			writer.append( "/ Speed: " + m.getRtt());
 			writer.append(" / Date: " + new Date());
 			writer.newLine();
 			writer.close();
