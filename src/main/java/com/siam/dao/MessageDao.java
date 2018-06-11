@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.siam.config.MessageRepository;
+import com.siam.model.Detail;
 import com.siam.model.Message;
 
 @Component
@@ -25,6 +26,9 @@ public class MessageDao {
 	private final String UPDATE_MESSAGE = "UPDATE message SET ipaddr=?, success=?, message=?, date=? ";
 	private final String DELETE_MESSAGE = "DELETE FROM messsage WHERE id=";
 	private final String COUNT_MESSAGE = "SELECT COUNT(*) FROM message ";
+	private final String GET_DETAIL = "SELECT message.id, device.macaddr, device.ipaddr, device.company, device.type, message.rtt FROM message\r\n" + 
+										"INNER JOIN device\r\n" + 
+										"ON device.macaddr = message.macaddr WHERE message.id=";
 	private final Logger LOGGER = LoggerFactory.getLogger(MessageDao.class);
 
 	@Autowired
@@ -40,6 +44,10 @@ public class MessageDao {
 	
 	public Message getMessageById(int id) {
 		return jdbcTemplate.queryForObject(GET_MESSAGE + WHERE_ID + "\'" + id + "\'", new BeanPropertyRowMapper<>(Message.class));
+	}
+	
+	public Detail getDetailById(int id) {
+		return jdbcTemplate.queryForObject(GET_DETAIL + "\'" + id + "\'", new BeanPropertyRowMapper<>(Detail.class));
 	}
 	
 	public Integer countMessageByMac(String macaddr) {

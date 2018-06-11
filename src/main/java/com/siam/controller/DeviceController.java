@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.siam.model.Detail;
 import com.siam.model.Device;
 import com.siam.model.Message;
 import com.siam.services.DeviceServices;
@@ -48,8 +49,8 @@ public class DeviceController {
 	
 	@CrossOrigin
 	@RequestMapping(value="/data/{id}", method=RequestMethod.GET)
-	public @ResponseBody Message getMessageById(@PathVariable("id") int id) {
-		return messageService.getMessageById(id);
+	public @ResponseBody Detail getDetailById(@PathVariable("id") int id) {
+		return messageService.getDetailById(id);
 	}
 	
 	@CrossOrigin

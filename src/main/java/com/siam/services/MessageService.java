@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.siam.dao.DeviceDao;
 import com.siam.dao.MessageDao;
+import com.siam.model.Detail;
 import com.siam.model.Device;
 import com.siam.model.Message;
 
@@ -40,6 +41,10 @@ public class MessageService {
 	
 	public Message getMessageById(int id) {
 		return messageDao.getMessageById(id);
+	}
+	
+	public Detail getDetailById(int id) {
+		return messageDao.getDetailById(id);
 	}
 
 }
