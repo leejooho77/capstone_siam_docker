@@ -20,6 +20,7 @@ public class Message {
 	private int rtt;
 	private Date date;
 	private String path;
+	private String type;
 	
 	public Integer getId() {
 		return id;
@@ -29,6 +30,12 @@ public class Message {
 	}
 	public String getIpAddr() {
 		return ipaddr;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public void setIpAddr(String ipaddr) {
 		this.ipaddr = ipaddr;

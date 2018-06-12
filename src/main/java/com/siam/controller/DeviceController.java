@@ -112,7 +112,7 @@ public class DeviceController {
 			writer.append("MAC address: " + m.getMacAddr());
 			writer.append(" / IP address: " + m.getIpAddr());
 			writer.append(" / Message: " + m.getMessage());
-			writer.append( "/ Speed: " + m.getRtt());
+			writer.append(" / Speed: " + m.getRtt());
 			writer.append(" / Date: " + new Date());
 			writer.newLine();
 			writer.close();
