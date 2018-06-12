@@ -1,5 +1,7 @@
 package com.siam.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +18,14 @@ public class Detail {
 	private String company;
 	private String type;
 	private int rtt;
+	private Date last_connected;
 	
+	public Date getLast_connected() {
+		return last_connected;
+	}
+	public void setLast_connected(Date last_connected) {
+		this.last_connected = last_connected;
+	}
 	public Integer getId() {
 		return id;
 	}

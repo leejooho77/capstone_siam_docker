@@ -26,7 +26,7 @@ public class MessageDao {
 	private final String UPDATE_MESSAGE = "UPDATE message SET ipaddr=?, success=?, message=?, date=? ";
 	private final String DELETE_MESSAGE = "DELETE FROM messsage WHERE id=";
 	private final String COUNT_MESSAGE = "SELECT COUNT(*) FROM message ";
-	private final String GET_DETAIL = "SELECT message.id, device.macaddr, device.ipaddr, device.company, device.type, message.rtt FROM message\r\n" + 
+	private final String GET_DETAIL = "SELECT message.id, device.macaddr, device.ipaddr, device.company, device.type, message.rtt, device.last_connected FROM message\r\n" + 
 										"INNER JOIN device\r\n" + 
 										"ON device.macaddr = message.macaddr WHERE message.id=";
 	private final Logger LOGGER = LoggerFactory.getLogger(MessageDao.class);
