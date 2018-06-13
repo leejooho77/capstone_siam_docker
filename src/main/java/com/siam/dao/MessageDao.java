@@ -21,9 +21,9 @@ public class MessageDao {
 	private MessageRepository messageRepository;
 	private final String GET_MESSAGE = "SELECT message.id, message.macaddr, message.ipaddr, message.success, message.message, message.rtt, message.date, message.path, device.type FROM message\r\n"
 			+ "JOIN device on message.macaddr = device.macaddr";
-	private final String WHERE_MAC = " WHERE macaddr=";
-	private final String WHERE_IP = " WHERE ipaddr=";
-	private final String WHERE_ID = " WHERE id=";
+	private final String WHERE_MAC = " WHERE message.macaddr=";
+	private final String WHERE_IP = " WHERE message.ipaddr=";
+	private final String WHERE_ID = " WHERE message.id=";
 	private final String INSERT_DEVICE = "INSERT INTO message (macaddr, ipaddr, success, message, date) VALUES (?,?,?,?,?)";
 	private final String UPDATE_MESSAGE = "UPDATE message SET ipaddr=?, success=?, message=?, date=? ";
 	private final String DELETE_MESSAGE = "DELETE FROM messsage WHERE id=";
